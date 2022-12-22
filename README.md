@@ -19,7 +19,7 @@ Use what you've learned about  Express, Express Routing, RESTful routing, and Se
 
 ## MVP Goals
 - Create a system where users can log in and search for adoptable pets.
-- Using postgres, create a database and build atleast two models with N:M relationships.
+- Using postgres, create a database and build atleast two models with relationships.
 
 ## Stretch Goals
 - Add ability to favorite certain pets to a "Favorites" list.
