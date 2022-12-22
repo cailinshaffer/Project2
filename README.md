@@ -8,13 +8,14 @@ Use what you've learned about  Express, Express Routing, RESTful routing, and Se
 
 ![User Chart drawio](https://user-images.githubusercontent.com/117546971/209067675-f35b6ff7-8275-4c77-91b7-0bd857714c37.png)
 
+![ERD Chart drawio](https://user-images.githubusercontent.com/117546971/209071272-785dc88a-0275-4a2a-8856-bdc6f418166a.png)
 
 
 ## User Stories
-As a user, I want to search adoptable pets in my area.
-As a user, I want to filter through different types of animals.
-As a user, I want to be shown a picture of each adoptable pet.
-As a user, I want to be shown characteristics of animal.
+- As a user, I want to search adoptable pets in my area.
+- As a user, I want to filter through different types of animals.
+- As a user, I want to be shown a picture of each adoptable pet.
+- As a user, I want to be shown characteristics of animal.
 
 ## MVP Goals
 - Create a system where users can log in and search for adoptable pets.
