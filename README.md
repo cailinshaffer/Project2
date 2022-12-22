@@ -22,5 +22,5 @@ Use what you've learned about  Express, Express Routing, RESTful routing, and Se
 - Using postgres, create a database and build atleast two models with N:M relationships.
 
 ## Stretch Goals
-- Add ability to favorite certain pets.
-- Add ability to comment on how cute the animals are.
+- Add ability to favorite certain pets to a "Favorites" list.
+- Add ability to comment on how dang cute the animals are.
