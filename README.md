@@ -17,10 +17,12 @@ Use what you've learned about  Express, Express Routing, RESTful routing, and Se
 
 
 ## User Stories
-- As a user, I want to search adoptable pets in my area.
+- As a user, I want to search through adoptable pets in my area.
 - As a user, I want to filter through different types of animals.
 - As a user, I want to be shown a picture of each adoptable pet.
 - As a user, I want to be shown characteristics of animal.
+- As a user, I would like to create an account.
+- As a user, I would like to be able to comment on my favorite pets.
 
 ## MVP Goals
 - Create a system where users can log in and search for adoptable pets.
