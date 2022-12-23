@@ -8,6 +8,7 @@ Use what you've learned about  Express, Express Routing, RESTful routing, and Se
 
 ## Restful Routing
 ![UserRR drawio](https://user-images.githubusercontent.com/117546971/209248041-a097cd0d-e6dc-4f33-956e-b3bf6c06f419.png)
+![PETSRR drawio](https://user-images.githubusercontent.com/117546971/209250524-b7e5bb70-87e3-4f67-9a4e-5f56342c7762.png)
 
 
 
