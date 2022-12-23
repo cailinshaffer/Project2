@@ -2,7 +2,6 @@
 
 # Its time to build your own API
 
-Here is a public API for your project https://www.adoptapet.com/public/apis/pet_list.html
 
 Use what you've learned about  Express, Express Routing, RESTful routing, and Sequelize to achieve a full-stack application!
 
