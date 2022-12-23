@@ -9,9 +9,10 @@ Use what you've learned about  Express, Express Routing, RESTful routing, and Se
 ## Restful Routing
 ![UserRR drawio](https://user-images.githubusercontent.com/117546971/209248041-a097cd0d-e6dc-4f33-956e-b3bf6c06f419.png)
 ![PETSRR drawio](https://user-images.githubusercontent.com/117546971/209250524-b7e5bb70-87e3-4f67-9a4e-5f56342c7762.png)
+![COMMENTSRR drawio](https://user-images.githubusercontent.com/117546971/209251368-80f7d917-4ed0-4abb-81eb-243f5098d81b.png)
 
 
-
+## ERD Table
 ![ERDtablep2 drawio (1)](https://user-images.githubusercontent.com/117546971/209243592-8da642c9-3edb-43dc-9318-4fac5429014c.png)
 
 
