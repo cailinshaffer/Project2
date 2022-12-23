@@ -1,0 +1,24 @@
+curl -d "grant_type=client_credentials&client_id={fjfkw1uOTcuaUOIcsieLqOmW2qcU8NlB488NDvMq86Qt3m15TE}&client_secret={iWz5RMu7IW1qQhjXnDW8gHWqkTrviAq6fuur2Bzo}" https://api.petfinder.com/v2/oauth2/token
+
+curl -d "grant_type=client_credentials&client_id=fjfkw1uOTcuaUOIcsieLqOmW2qcU8NlB488NDvMq86Qt3m15TE&client_secret=iWz5RMu7IW1qQhjXnDW8gHWqkTrviAq6fuur2Bzo" https://api.petfinder.com/v2/oauth2/token
+
+
+
+require('dotenv').config() 
+const axios = require('axios')
+const API_KEY = process.env.API_KEY
+
+app.get('/', async (req,res) => {
+    try {
+        const baseUrl = 'https://api.petfinder.com/v2/oauth2/token'
+        console.log(bsaeUrl)
+        cosnt response = await axios.get(baseUrl)
+        res.json(response.data)
+    } catch (error) {
+        // console log the specifics of the error, but keep them private
+        console.log('🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥', error)
+        // generic interal server error code, message to the client that something bad happened
+        res.status(500).send('internal server error')
+        
+    }
+})
