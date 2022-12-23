@@ -6,7 +6,10 @@ Here is a public API for your project https://www.adoptapet.com/public/apis/pet_
 
 Use what you've learned about  Express, Express Routing, RESTful routing, and Sequelize to achieve a full-stack application!
 
-![User Chart drawio](https://user-images.githubusercontent.com/117546971/209067675-f35b6ff7-8275-4c77-91b7-0bd857714c37.png)
+## Restful Routing
+![UserRR drawio](https://user-images.githubusercontent.com/117546971/209248041-a097cd0d-e6dc-4f33-956e-b3bf6c06f419.png)
+
+
 
 ![ERDtablep2 drawio (1)](https://user-images.githubusercontent.com/117546971/209243592-8da642c9-3edb-43dc-9318-4fac5429014c.png)
 
