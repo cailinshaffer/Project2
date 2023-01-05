@@ -1,6 +1,4 @@
-curl -d "grant_type=client_credentials&client_id={fjfkw1uOTcuaUOIcsieLqOmW2qcU8NlB488NDvMq86Qt3m15TE}&client_secret={iWz5RMu7IW1qQhjXnDW8gHWqkTrviAq6fuur2Bzo}" https://api.petfinder.com/v2/oauth2/token
-
-curl -d "grant_type=client_credentials&client_id=fjfkw1uOTcuaUOIcsieLqOmW2qcU8NlB488NDvMq86Qt3m15TE&client_secret=iWz5RMu7IW1qQhjXnDW8gHWqkTrviAq6fuur2Bzo" https://api.petfinder.com/v2/oauth2/token
+sequelize model:create --name pets --attributes type:string,age:integer,breed:string
 
 
 
@@ -22,3 +20,40 @@ app.get('/', async (req,res) => {
         
     }
 })
+
+
+
+
+
+const axios = require('axios')
+const CLIENT_ID = process.env.CLIENT_ID
+const SECRET_ID = process.env.SECRET_ID
+
+async function fetchPets() {
+    try {
+        const body = {
+            'grant_type': 'client_credentials',
+            'client_id': CLIENT_ID,
+            'client_secret': SECRET
+        }
+
+        // https://api.petfinder.com/v2/oauth2/token
+        const tokenUrl = 'https://api.petfinder.com/v2/oauth2/token'
+        const tokenResponse = await axios.post(tokenUrl, body)
+        console.log('bearer token reponse:', tokenResponse.data)
+
+        const options = {
+            headers: {
+                Authorization: `Bearer ${tokenResponse.data.access_token}`
+            }
+        }
+
+        const dataResponse = await axios.get('https://api.petfinder.com/v2/animals?type=dog&page=2', options)
+
+        console.log('data response:', dataResponse.data)
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+fetchPets()

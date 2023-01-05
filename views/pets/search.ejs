@@ -1,0 +1,15 @@
+<%- include('../partials/header', {user}) %>
+<!-- add input for search of pet type, age, breed, zip -->
+<h3>Find your new best friend</h3>
+
+<form action="/animals/search" method="GET">
+    <label for="petType">Pet type</label>
+    <input type="petType" name="petType" id="petType" required/>
+
+    <label for="zipcode">zipcode</label>
+    <input type="zipcode" name="zipcode" id="zipcode" required/>
+    <button type="submit">Enter</button>
+ 
+</form>
+
+<%- include('../partials/footer') %>
