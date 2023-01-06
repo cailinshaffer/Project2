@@ -1,5 +1,6 @@
-sequelize model:create --name pets --attributes type:string,age:integer,breed:string
+sequelize model:create --name pet --attributes type:string,age:integer,breed:string
 
+sequelize model:create --name comment --attributes comment:string,date:integer
 
 <form action="/pets/results" method="GET">
     <p>Pet Type: <%= pets.type%></p>

@@ -79,6 +79,9 @@ app.use('/users', require('./controllers/users'))
 //CONTROLLER for pets
 app.use('/pets', require('./controllers/pets'))
 
+//CONTROLLER for comments
+//app.use('/comments', require('./controllers/comments'))
+
 
 // GET all pets
 app.get('/pets', async (req,res) => {

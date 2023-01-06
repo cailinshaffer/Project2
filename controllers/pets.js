@@ -32,9 +32,6 @@ router.get('/search', async (req, res) => {
 
 
 
-
-
-
 //GET results from search
 router.get('/results', async (req, res) => {
     try{
@@ -61,19 +58,21 @@ router.get('/results', async (req, res) => {
     const dataResponse = await axios.get(`https://api.petfinder.com/v2/animals?type=${petType}`, options)
 
     //console.log(dataResponse.data)
-    console.log(dataResponse.data.animals[0].photos)
+    //console.log(dataResponse.data.animals[0].photos)
     
-      //res.send(dataResponse.data.animals)
+    //res.send(dataResponse.data.animals)
      
      res.render('pets/results.ejs', {
         pets: dataResponse.data.animals,
         
     })
     
-   }catch(err){
+   } catch (err) {
        console.log(err)
    }
 })
+
+
 
 
 
