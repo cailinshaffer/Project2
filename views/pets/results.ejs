@@ -1,0 +1,19 @@
+<!-- show results from search page -->
+
+ <h1>Look at all these fur babies </h1>
+
+<% pets.forEach(pet => { %>
+    <% if (pet.photos.length > 0) { %>
+    <div>
+        <h2><%= pet.type %></h2>
+       
+        
+        <img alt="<%= pet.type %>" src="<%= pet.photos[0].medium %>">
+        
+      <% }%>  
+        </div>
+        <%}) %>
+
+
+
+

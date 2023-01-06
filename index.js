@@ -19,7 +19,11 @@ app.use(cookieParser())
 app.set('view engine', 'ejs')
 const CLIENT_ID = process.env.CLIENT_ID
 const SECRET_ID = process.env.SECRET_ID
-const petUrl = "https://api.petfinder.com/v2/animals"
+const bodyParser = require('body-parser')
+
+
+
+
 
 //custome auth middleware that checks the cookies for a user id
 //and it finds one, look up the user in the db
@@ -69,7 +73,45 @@ app.get('/', (req,res) => {
     })
 })
 
+//CONTROLLER for users
 app.use('/users', require('./controllers/users'))
+
+//CONTROLLER for pets
+app.use('/pets', require('./controllers/pets'))
+
+
+// GET all pets
+app.get('/pets', async (req,res) => {
+    try {
+       
+        const body = {
+            'grant_type': 'client_credentials',
+            'client_id': CLIENT_ID,
+            'client_secret': SECRET_ID
+    
+        }
+    
+        // https://api.petfinder.com/v2/oauth2/token
+        const tokenUrl = 'https://api.petfinder.com/v2/oauth2/token'
+        const tokenResponse = await axios.post(tokenUrl, body)
+        console.log('bearer token reponse:', tokenResponse.data)
+    
+        const options = {
+            headers: {
+                Authorization: `Bearer ${tokenResponse.data.access_token}`
+            }
+        } 
+    
+    
+    const dataResponse = await axios.get('https://api.petfinder.com/v2/animals', options)
+       res.send(dataResponse.data)
+    //    res.render('pets/search.ejs')
+    }catch(err){
+        console.log(err)
+    }
+})
+
+
 
 
 // async function fetchPets() {
@@ -113,81 +155,83 @@ app.use('/users', require('./controllers/users'))
 
 
 
-app.get('/pets', async (req,res) => {
-    try{
-        // const animals = fs.readFileSync('/animals')
-        // let animalData = JSON.parse(animals)
-        // let animalUrl = 'https://api.petfinder.com/v2/animals'
-        // axios.get(animalUrl).then(response => {
-        //     //let animal = apiResponse.data.results
-        //     res.send(response.data)
-        // })
+// app.get('/pets', async (req,res) => {
+//     try{
+//         // const animals = fs.readFileSync('/animals')
+//         // let animalData = JSON.parse(animals)
+//         // let animalUrl = 'https://api.petfinder.com/v2/animals'
+//         // axios.get(animalUrl).then(response => {
+//         //     //let animal = apiResponse.data.results
+//         //     res.send(response.data)
+//         // })
        
-        const body = {
-            'grant_type': 'client_credentials',
-            'client_id': CLIENT_ID,
-            'client_secret': SECRET_ID
+//         const body = {
+//             'grant_type': 'client_credentials',
+//             'client_id': CLIENT_ID,
+//             'client_secret': SECRET_ID
     
-        }
+//         }
     
-        // https://api.petfinder.com/v2/oauth2/token
-        const tokenUrl = 'https://api.petfinder.com/v2/oauth2/token'
-        const tokenResponse = await axios.post(tokenUrl, body)
-        console.log('bearer token reponse:', tokenResponse.data)
+//         // https://api.petfinder.com/v2/oauth2/token
+//         const tokenUrl = 'https://api.petfinder.com/v2/oauth2/token'
+//         const tokenResponse = await axios.post(tokenUrl, body)
+//         console.log('bearer token reponse:', tokenResponse.data)
     
-        const options = {
-            headers: {
-                Authorization: `Bearer ${tokenResponse.data.access_token}`
-            }
-        } 
+//         const options = {
+//             headers: {
+//                 Authorization: `Bearer ${tokenResponse.data.access_token}`
+//             }
+//         } 
     
     
-    const dataResponse = await axios.get('https://api.petfinder.com/v2/animals', options)
-       res.send(dataResponse.data)
-    //    res.render('pets/search.ejs')
-    }catch(err){
-        console.log(err)
-    }
-})
+//     const dataResponse = await axios.get('https://api.petfinder.com/v2/animals', options)
+//        res.send(dataResponse.data)
+//     //    res.render('pets/search.ejs')
+//     }catch(err){
+//         console.log(err)
+//     }
+// })
 
 
 
-// GET all 
-app.get('/pets/search', async (req, res) => {
-    try {
+// // GET all 
+// app.get('/pets/search', async (req, res) => {
+//     try {
+
+    
        
        
-        const body = {
-            'grant_type': 'client_credentials',
-            'client_id': CLIENT_ID,
-            'client_secret': SECRET_ID
+//         const body = {
+//             'grant_type': 'client_credentials',
+//             'client_id': CLIENT_ID,
+//             'client_secret': SECRET_ID
     
-        }
+//         }
     
-        // https://api.petfinder.com/v2/oauth2/token
-        const tokenUrl = 'https://api.petfinder.com/v2/oauth2/token'
-        const tokenResponse = await axios.post(tokenUrl, body)
-        console.log('bearer token reponse:', tokenResponse.data)
+//         // https://api.petfinder.com/v2/oauth2/token
+//         const tokenUrl = 'https://api.petfinder.com/v2/oauth2/token'
+//         const tokenResponse = await axios.post(tokenUrl, body)
+//         console.log('bearer token reponse:', tokenResponse.data)
     
-        const options = {
-            headers: {
-                Authorization: `Bearer ${tokenResponse.data.access_token}`
-            }
-        } 
+//         const options = {
+//             headers: {
+//                 Authorization: `Bearer ${tokenResponse.data.access_token}`
+//             }
+//         } 
     
-    const dataResponse = await axios.get('https://api.petfinder.com/v2/animals', options)
-    //console.log(`incoming request: ${req.method} - ${req.url}`)
-      res.render('pets/search.ejs')
-    //res.send(dataResponse.data)
-    }catch(err){
-        console.log(err)
+//     const dataResponse = await axios.get('https://api.petfinder.com/v2/animals', options)
+//     //console.log(`incoming request: ${req.method} - ${req.url}`)
+//       res.render('pets/search.ejs')
+//     //res.send(dataResponse.data)
+//     }catch(err){
+//         console.log(err)
 
-         //fetchPets()
-    }
-   res.render('pets/search.ejs')
+//          //fetchPets()
+//     }
+//    res.render('pets/search.ejs')
     
-    //res.send("search animals")
-})
+//     //res.send("search animals")
+// })
 
 
 
@@ -262,6 +306,12 @@ app.get('/pets/search', async (req, res) => {
 
 
 //listen on port
+
+
+
+
+
+
 app.listen(PORT, () => {
     console.log(`authenticating users on PORT ${PORT}`)
 })

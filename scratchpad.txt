@@ -1,6 +1,11 @@
 sequelize model:create --name pets --attributes type:string,age:integer,breed:string
 
 
+<form action="/pets/results" method="GET">
+    <p>Pet Type: <%= pets.type%></p>
+    
+</form>
+
 
 require('dotenv').config() 
 const axios = require('axios')
