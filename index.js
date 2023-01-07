@@ -25,7 +25,7 @@ const bodyParser = require('body-parser')
 
 
 
-//custome auth middleware that checks the cookies for a user id
+//custom auth middleware that checks the cookies for a user id
 //and it finds one, look up the user in the db
 //tell all downstream routes about this user
 
@@ -80,7 +80,7 @@ app.use('/users', require('./controllers/users'))
 app.use('/pets', require('./controllers/pets'))
 
 //CONTROLLER for comments
-//app.use('/comments', require('./controllers/comments'))
+app.use('/comments', require('./controllers/comments'))
 
 
 // GET all pets

@@ -1,0 +1,18 @@
+<%- include('../partials/header', {user}) %>
+<h3>Pet Details:</h3>
+<p>Name: <%=data.name%></p>
+<p>Breed: <%=data.breeds.primary%> </p>
+<p>Age: <%=data.age%></p>
+<p>Size: <%=data.size%></p>
+<p>Coat: <%=data.coat%></p>
+<p>Spayed/Nuetered: <%=data.attributes.spayed_neutered%></p>
+<p>House trained: <%=data.attributes.house_trained%></p>
+<p>Description: <%=data.tags%></p>
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

@@ -1,6 +1,12 @@
+ga-cs-petfinder
+
+      <a href="/pets/<%=pet.id%>"><h2><%= pet.name %></h2></a>
+
+
+
 sequelize model:create --name pet --attributes type:string,age:integer,breed:string
 
-sequelize model:create --name comment --attributes comment:string,date:integer
+sequelize model:create --name comment --attributes comment:string,petId:integer,userId:integer
 
 <form action="/pets/results" method="GET">
     <p>Pet Type: <%= pets.type%></p>

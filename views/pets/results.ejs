@@ -1,26 +1,27 @@
 <!-- show results from search page -->
 
- <h1>Look at all these fur babies </h1>
+<h1>Look at all these fur babies </h1>
 
 <% pets.forEach(pet => { %>
     <% if (pet.photos.length > 0) { %>
     <div>
-        <h2><%= pet.type %></h2>
-       
+        
+
+        <a href="/pets/<%=pet.id%>"><h2><%= pet.name %></h2></a>
+
         
         <img alt="<%= pet.type %>" src="<%= pet.photos[0].medium %>">
         
       <% }%>  
         </div>
         <%}) %>
-        <!-- <form action="/comments" method="POST">
+        <form action="/comments" method="POST">
         <div class="form-group">
           <label for="comments">comments</label>
           <input type="text" class="form-control" id="comments" name="comments"/>
         </div>
       
         <input type="submit" class="btn btn-primary">
-      </form> -->
-
+      </form>
 
 

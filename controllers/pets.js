@@ -36,6 +36,7 @@ router.get('/search', async (req, res) => {
 router.get('/results', async (req, res) => {
     try{
       const petType = req.query.petType
+      console.log(petType)
        const body = {
            'grant_type': 'client_credentials',
            'client_id': CLIENT_ID,
@@ -60,7 +61,7 @@ router.get('/results', async (req, res) => {
     //console.log(dataResponse.data)
     //console.log(dataResponse.data.animals[0].photos)
     
-    //res.send(dataResponse.data.animals)
+    // res.send(dataResponse.data.animals)
      
      res.render('pets/results.ejs', {
         pets: dataResponse.data.animals,
@@ -74,6 +75,43 @@ router.get('/results', async (req, res) => {
 
 
 
+
+
+
+router.get('/:id', async (req, res) => {
+    try { 
+        let petId = req.params.id
+        
+         const body = {
+             'grant_type': 'client_credentials',
+             'client_id': CLIENT_ID,
+             'client_secret': SECRET_ID
+     
+         }
+     
+         // https://api.petfinder.com/v2/oauth2/token
+         const tokenUrl = 'https://api.petfinder.com/v2/oauth2/token'
+         const tokenResponse = await axios.post(tokenUrl, body)
+         //console.log('bearer token reponse:', tokenResponse.data)
+     
+         const options = {
+             headers: {
+                 Authorization: `Bearer ${tokenResponse.data.access_token}`
+             }
+         } 
+       
+        
+      const dataResponse = await axios.get(`https://api.petfinder.com/v2/animals/${petId}`, options)
+         console.log(dataResponse.data.animal)
+        
+        //console.log(petId + "\n\n\n\n")
+        res.render('pets/details.ejs', {
+            data: dataResponse.data.animal
+        })
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 
 
