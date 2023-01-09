@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      //parent in 1:M
+      models.pets.hasMany(models.comment)
     }
   }
   pets.init({

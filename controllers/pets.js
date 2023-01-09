@@ -6,9 +6,6 @@ const crypto = require('crypto-js')
 const axios = require('axios')
 const router = express.Router()
 
-
-
-//APP CONFIG
 const app = express()
 const PORT = process.env.PORT || 8000
 app.set('view engine', 'ejs')
@@ -22,7 +19,8 @@ const SECRET_ID = process.env.SECRET_ID
 const bodyParser = require('body-parser')
 
 
-// GET search page
+
+// GET search route page for looking up pet type
 router.get('/search', async (req, res) => {
     //console.log(req.query.pets)
    res.render('pets/search.ejs')
@@ -32,11 +30,12 @@ router.get('/search', async (req, res) => {
 
 
 
-//GET results from search
+//GET results from search show pet name and show photo
 router.get('/results', async (req, res) => {
     try{
+        ////look up pet type in the database
       const petType = req.query.petType
-      console.log(petType)
+      //console.log(petType)
        const body = {
            'grant_type': 'client_credentials',
            'client_id': CLIENT_ID,
@@ -75,12 +74,10 @@ router.get('/results', async (req, res) => {
 
 
 
-
-
-
+// GET route for each pets profile by petId
 router.get('/:id', async (req, res) => {
     try { 
-        let petId = req.params.id
+        
         
          const body = {
              'grant_type': 'client_credentials',
@@ -99,11 +96,11 @@ router.get('/:id', async (req, res) => {
                  Authorization: `Bearer ${tokenResponse.data.access_token}`
              }
          } 
-       
-        
+        //  declare pet id
+         let petId = req.params.id
       const dataResponse = await axios.get(`https://api.petfinder.com/v2/animals/${petId}`, options)
-         console.log(dataResponse.data.animal)
-        
+         //console.log(dataResponse.data.animal)
+         
         //console.log(petId + "\n\n\n\n")
         res.render('pets/details.ejs', {
             data: dataResponse.data.animal
@@ -112,6 +109,37 @@ router.get('/:id', async (req, res) => {
         console.log(error)
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+// router.post('/:id/comments', async (req, res) => {
+//     try {
+//      const petComment = await db.comment.create({
+//         userId: res.locals.user.id,
+//         comment: req.body.comment,
+//         petId: res.locals.animal.id
+
+//      })
+//     //res.render('comment', {pet: req.pet})
+//     console.log(petComment)
+//     } catch(err) {
+//         console.log("❌❌❌❌❌", err)
+//     }
+// } )
+
+
+
+  
 
 
 

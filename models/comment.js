@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      //child in a 1:M with pets
       models.comment.belongsTo(models.user)
     }
   }

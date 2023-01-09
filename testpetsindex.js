@@ -1,50 +1,51 @@
-// require('dotenv').config()
-// const express = require('express')
-// const cookieParser = require('cookie-parser')
-// const db = require('./models')
-// const crypto = require('crypto-js')
-// const axios = require('axios')
+const db = require('./models')
 
-// //app config
-// const app = express()
-// const PORT = process.env.PORT || 8000
-// app.set('view engine', 'ejs')
-// const CLIENT_ID = process.env.CLIENT_ID
-// const SECRET_ID = process.env.SECRET_ID
+// db.pets.create ({
+//     type: "Dog" ,
+//     age: 8,
+//     breed: "Husky"
+// })
+// .then(pets => {
+//     console.log(pets.get())
+// })
 
-// async function fetchPets() {
+// const createPet = async () => {
 //     try {
-//         const body = {
-//             'grant_type': 'client_credentials',
-//             'client_id': CLIENT_ID,
-//             'client_secret': SECRET_ID
-
-//         }
-
-//         // https://api.petfinder.com/v2/oauth2/token
-//         const tokenUrl = 'https://api.petfinder.com/v2/oauth2/token'
-//         const tokenResponse = await axios.post(tokenUrl, body)
-//         console.log('bearer token reponse:', tokenResponse.data)
-
-//         const options = {
-//             headers: {
-//                 Authorization: `Bearer ${tokenResponse.data.access_token}`
-//             }
-//         }
-
-//         const dataResponse = await axios.get('https://api.petfinder.com/v2/animals?type=dog&page=2', options)
-
-//         console.log('data response:', dataResponse.data)
+//         const newPet = await db.pets.create({
+//             type: "Dog" ,
+//             age: 2,
+//             breed: "GermanShepherd",
+//         })
+//         console.log(newPet)
 //     } catch (err) {
-//         console.log(err)
+//           console.log(err)
 //     }
 // }
-
-// fetchPets()
-
+// createPet()
 
 
-// //listen on port
-// app.listen(PORT, () => {
-//     console.log(`authenticating users on PORT ${PORT}`)
+// db.comment.create ({
+//     comment: 'What a cute puppers',
+
+//     petId: 1,
+//     userId: 1,
 // })
+// .then(comment => {
+//     console.log(comment.get())
+// })
+
+
+
+// const findPets = async () => {
+//     try {
+//       const pet = await db.pets.findOne({
+//         where: { id: 1},
+//         // include: [db.type]
+//       })
+//       console.log(pet)
+//     } catch (err) {
+//       console.log(err)
+//     }
+//   }
+//   findPets()
+
