@@ -5,6 +5,15 @@
 
 Use what you've learned about  Express, Express Routing, RESTful routing, and Sequelize to achieve a full-stack application!
 
+##  Installtion Instructions
+1. Fork and clone repository
+2. Go to PetFinder API and retrieve your personal API key and touch a .env file for you API key.
+3. In your terminal, install necessary packages you would like to use! Including "npm i -y"
+4. Touch a .gitignore file for your node_modules and .env so they wont be uploaded to your repo.
+5. Run 'sequelize db:create' to create the database in psql.
+6. Run 'sequelize db:migrate' to migrate the models.
+7. Run nodemon to connect to your HTTP server.
+
 ## Restful Routing
 ![UserRR drawio](https://user-images.githubusercontent.com/117546971/209248041-a097cd0d-e6dc-4f33-956e-b3bf6c06f419.png)
 ![PETSRR drawio](https://user-images.githubusercontent.com/117546971/209250524-b7e5bb70-87e3-4f67-9a4e-5f56342c7762.png)
@@ -31,3 +40,7 @@ Use what you've learned about  Express, Express Routing, RESTful routing, and Se
 ## Stretch Goals
 - Add ability to favorite certain pets to a "Favorites" list.
 - Add ability to comment on how dang cute the animals are.
+
+
+## Post-Project Reflection
+   This projects made me realize how much more I have to learn! If I could redo from the begining the I would do more research on the specific API of choice! I would make sure I fully understand the workings of that API and how to pull data from it. 
