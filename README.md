@@ -5,6 +5,9 @@
 
 Use what you've learned about  Express, Express Routing, RESTful routing, and Sequelize to achieve a full-stack application!
 
+Link to depoyment site: 
+ https://ga-cs-petfinder.herokuapp.com/
+
 ##  Installtion Instructions
 1. Fork and clone repository
 2. Go to PetFinder API and retrieve your personal API key and touch a .env file for you API key.
