@@ -78,7 +78,6 @@ router.get('/results', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try { 
         
-        
          const body = {
              'grant_type': 'client_credentials',
              'client_id': CLIENT_ID,

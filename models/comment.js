@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       //child in a 1:M with pets
       models.comment.belongsTo(models.user)
+      //models.comment.belongsTo(models.pet)
     }
   }
   comment.init({

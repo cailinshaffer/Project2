@@ -10,21 +10,23 @@
 <p>Description: <%=data.tags%></p>
 
 
-<h2>Comments:</h2>
 
-<form method="POST" action="/pets/comments">
+
+<form method="POST" action="/comments">
     <label for="name">User name:</label>
     <input id="name"type="text" placeholder="User name here..."name="name" autocomplete="off" required>
 
     <label for="comment">Comment:</label>
     <input id="comment" type="text" placeholder="Enter you comment" name="comment" autocomplete="off" required>
-      
+      <input hidden name="petId" value= "<%data.petId%>">
+      <input hidden name="userId" value="<%data.userId%>">
+      <!-- <input hidden name="" value""> -->
     <button type="submit">Add comment:</button>
 </form>
 
 
 
-
+<h2>Comments:</h2>
 
 
 
