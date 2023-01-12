@@ -4,6 +4,8 @@ const db = require('../models')
 const router = express.Router()
 const crypto = require('crypto-js')
 const bcrypt = require('bcrypt')
+const methodOverride = require('method-override');
+
 
 // mount our routes on the router
 
@@ -111,5 +113,25 @@ router.get('/profile', (req, res) => {
     }
 })
 
+
+
+//PUT /users/profile -- update password
+router.put ("/:id", async (req, res) => {
+    try {
+        const updatePassword = await db.user.update(
+            {password: bcrypt.hashSync(req.body.password, 12)} ,{
+                where: {
+                    userId: res.locals.user
+                }
+            }
+        )
+
+        console.log(updatePassword)
+    } catch(err) {
+      console.log("❌❌❌❌❌", err)
+    }
+})
+
 // export the router
 module.exports = router
+

@@ -18,17 +18,24 @@
 
     <label for="comment">Comment:</label>
     <input id="comment" type="text" placeholder="Enter you comment" name="comment" autocomplete="off" required>
-      <input hidden name="petId" value= "<%data.petId%>">
-      <input hidden name="userId" value="<%data.userId%>">
+      <input hidden name="petId" value="<%=data.id%>">
+      <input hidden name="type" value="<%=data.type%>">
+      <input hidden name="breed" value="<%=data.breeds.primary%>">
       <!-- <input hidden name="" value""> -->
     <button type="submit">Add comment:</button>
 </form>
 
 
 
+
 <h2>Comments:</h2>
 
-
+<div>
+  <% comments.forEach(comment =>{ %>
+    <p> <%= comment.id %> has this to say:</p>
+    <p><%= comment.comment %></p>
+  <% }) %>
+</div>
 
 
 

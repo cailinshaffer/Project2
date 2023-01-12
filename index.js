@@ -7,6 +7,7 @@ const db = require('./models')
 const crypto = require('crypto-js')
 const axios = require('axios') 
 const fs = require('fs')
+const methodOverride = require('method-override');
 
 //app config
 const app = express()
@@ -22,7 +23,8 @@ const SECRET_ID = process.env.SECRET_ID
 const bodyParser = require('body-parser')
 
 
-
+// MIDDLEWARE
+app.use(methodOverride('_method'));
 
 
 //custom auth middleware that checks the cookies for a user id

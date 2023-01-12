@@ -1,5 +1,8 @@
 ga-cs-petfinder
 
+sequelize model:create --name users_pets --attributes userId:integer,petId:integer
+
+
 <div>
   <% pets.comments.forEach(comments =>{ %>
     <p> <%= comments.id %> has this to say:</p>

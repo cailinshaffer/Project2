@@ -2,4 +2,12 @@
 
 <h3>Hey, <%= user.email %> thanks for logging in it the app! </h3>
 
+
+<form method="POST" action="/user/<%=user.id%>/?_method=PUT">
+    <label>Update Password</label>
+    <input type="text" name="password" value="<%= user.password %>">
+    
+    <input type="submit">
+</form>
+
 <%- include('../partials/footer') %>

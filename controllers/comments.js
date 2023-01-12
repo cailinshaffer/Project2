@@ -55,36 +55,27 @@ const SECRET_ID = process.env.SECRET_ID
 
 router.post('/', async (req, res) => {
     try {
+        console.log(req.body)
+        const [pet] = await db.pet.findOrCreate({
+            where: {
+                petId:req.body.petId
+            },
+            defaults:{
+                type:req.body.type,
+                age:req.body.age,
+                breed:req.body.breed
+            }
+        })
 
         const userComment = await db.comment.create({
-            petId: req.body.id,
-            userId: req.body.id,
-            comment: req.body.id
+            petId: pet.id,
+            userId: res.locals.user.id,
+            comment: req.body.comment
             
     
         })
 
-        const body = {
-            'grant_type': 'client_credentials',
-            'client_id': CLIENT_ID,
-            'client_secret': SECRET_ID
-
-        }
-
-        // https://api.petfinder.com/v2/oauth2/token
-        const tokenUrl = 'https://api.petfinder.com/v2/oauth2/token'
-        const tokenResponse = await axios.post(tokenUrl, body)
-        console.log('bearer token reponse:', tokenResponse.data)
-
-        const options = {
-            headers: {
-                Authorization: `Bearer ${tokenResponse.data.access_token}`
-            }
-        }
-
-        const dataResponse = await axios.get(`https://api.petfinder.com/v2/animals?${userComment}`, options)
-        
-        res.redirect('pets/results.ejs')
+        res.redirect(`/pets/${pet.petId}`)
 
         console.log('comments here', userComment)
         //console.log('data response:', dataResponse.data)
