@@ -38,6 +38,17 @@
 </div>
 
 
+<ul>
+  <% comments.forEach((comment, index) => { %>
+      <form method="POST" action="/comment/<%= index %>/?_method=DELETE">
+          <input type="submit" value="Delete">
+          <button type="submit">Delete comment</button>
+      </form>
+  </li>
+  <% }); %>
+</ul>
+
+
 
 
 

@@ -135,27 +135,6 @@ router.get('/:id', async (req, res) => {
 
 
 
-// router.post('/:id/comments', async (req, res) => {
-//     try {
-//      const petComment = await db.comment.create({
-//         userId: res.locals.user.id,
-//         comment: req.body.comment,
-//         petId: res.locals.animal.id
-
-//      })
-//     //res.render('comment', {pet: req.pet})
-//     console.log(petComment)
-//     } catch(err) {
-//         console.log("❌❌❌❌❌", err)
-//     }
-// } )
-
-
-
-  
-
-
-
 
 
 // export the router

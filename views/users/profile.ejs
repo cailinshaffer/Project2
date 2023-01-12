@@ -3,9 +3,9 @@
 <h3>Hey, <%= user.email %> thanks for logging in it the app! </h3>
 
 
-<form method="POST" action="/user/<%=user.id%>/?_method=PUT">
+<form method="POST" action="/users/<%=user.id%>/?_method=PUT">
     <label>Update Password</label>
-    <input type="text" name="password" value="<%= user.password %>">
+    <input type="text" name="password" id="password" value="<%= user.id %>">
     
     <input type="submit">
 </form>
