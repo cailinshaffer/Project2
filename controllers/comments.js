@@ -91,7 +91,7 @@ router.delete('/:id', async (req,res) => {
        
         const deleteComment = await db.comment.destroy({
             where: {
-                comment: req.params.id
+                id: req.params.id
             },
         }) 
         res.redirect(`/pets/${pet.petId}`) 

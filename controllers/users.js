@@ -121,7 +121,7 @@ router.put ("/:id", async (req, res) => {
         const updatePassword = await db.user.update(
             {password: bcrypt.hashSync(req.body.password, 12)} ,{
                 where: {
-                    email: res.locals.user
+                    email: res.locals.user.email
                 }
             }
         )
