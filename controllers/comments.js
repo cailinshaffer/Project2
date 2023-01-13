@@ -2,7 +2,7 @@ const express = require('express')
 const db = require('../models')
 const axios = require('axios')
 const router = express.Router()
-const methodOverride = require('method-override');
+
 
 
 const CLIENT_ID = process.env.CLIENT_ID
@@ -85,16 +85,19 @@ router.post('/', async (req, res) => {
     }
 })
 
-
+// DELETE comment from pets profile
 router.delete('/:id', async (req,res) => {
     try{
        
         const deleteComment = await db.comment.destroy({
             where: {
+            
                 id: req.params.id
             },
         }) 
-        res.redirect(`/pets/${pet.petId}`) 
+        // res.send("DELETE")
+        res.redirect(`/pets/${req.body.petId}`) 
+        console.log("DELETE",deleteComment)
     } catch(err) {
         console.log("❌❌❌❌❌", err)
       }

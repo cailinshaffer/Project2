@@ -98,7 +98,7 @@ router.get('/:id', async (req, res) => {
         //  declare pet id
          let petId = req.params.id
       const dataResponse = await axios.get(`https://api.petfinder.com/v2/animals/${petId}`, options)
-         console.log(dataResponse.data.animal)
+         //console.log(dataResponse.data.animal)
 
          const findPet = await db.pet.findOne({
             where: {

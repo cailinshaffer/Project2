@@ -34,19 +34,16 @@
   <% comments.forEach(comment =>{ %>
     <p> <%= comment.id %> has this to say:</p>
     <p><%= comment.comment %></p>
+    <form method="POST" action="/comments/<%= comment.id %>/?_method=DELETE">
+      <input hidden name="petId" value="<%=data.id%>">
+      <button type="submit">Delete comment</button>
+  </form>
   <% }) %>
 </div>
 
-<form>
-  <ul>
-    <% comments.forEach((comment, index) => { %>
-        <form method="POST" action="/comment/<%= index %>/?_method=DELETE">
-            <button type="submit">Delete comment</button>
-        </form>
-    </li>
-    <% }); %>
-  </ul>
-  </form>
+
+ 
+
 
 
 
