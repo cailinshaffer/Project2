@@ -29,7 +29,7 @@ Link to depoyment site:
 
 
 ## User Stories
-- As a user, I want to search through adoptable pets in my area.
+- As a user, I want to search through adoptable pets.
 - As a user, I want to filter through different types of animals.
 - As a user, I want to be shown a picture of each adoptable pet.
 - As a user, I want to be shown characteristics of animal.

@@ -12,6 +12,7 @@
 
 
 
+
 <form method="POST" action="/comments">
     <label for="name">User name:</label>
     <input id="name"type="text" placeholder="User name here..."name="name" autocomplete="off" required>
@@ -36,7 +37,7 @@
     <p><%= comment.comment %></p>
     <form method="POST" action="/comments/<%= comment.id %>/?_method=DELETE">
       <input hidden name="petId" value="<%=data.id%>">
-      <button type="submit">Delete comment</button>
+      <button type="submit">Delete Comment</button>
   </form>
   <% }) %>
 </div>
