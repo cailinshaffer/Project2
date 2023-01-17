@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Pet Finder</title>
+    <style>
+        /* nav {
+            display: flex;
+            flex-direction: row;
+            background-color: rgb(10, 54, 229); 
+            color: white;
+        } */
+        body {
+            background: url(https://static.boredpanda.com/blog/wp-content/uploads/2015/09/cats-and-dogs-getting-along-53__605.jpg);
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            font-family: 'Anton', sans-serif;
+            color: white;
+            font-size: 35px;
+
+            
+        }
+        ul {
+            list-style: none;
+            /* text-decoration: none; */
+            color: white;
+        }
+        li {
+            text-decoration: none;
+            display: inline;
+            color: white;
+        }
+        a {
+      
+      color: white;
+}
+        
+    </style>
 </head>
 <body>
+    
     <nav>
         <ul>
             <!-- show home whether the user is logged in or not -->
@@ -14,7 +50,7 @@
             <% if(user) {%> 
                 
                 <!-- show these if user is logged in -->
-                <li><a href="/users/profile">Profile</a></li>
+                <li><a href="/users/profile" >Profile</a></li>
                 <li><a href="/users/logout">Logout</a></li>
                 <li><a href="/pets/search">Search Pets</a></li>
                 
@@ -23,8 +59,10 @@
                     <!-- show these if user not logged in -->
                     <li><a href="/users/new">Sign Up</a></li>
                     <li><a href="/users/login">Login</a></li>
-                    <li><a href="/pets/search">Search Pets</a>></a></li>
+                    <li><a href="/pets/search">Search Pets</a></a></li>
                     <% } %>
         </ul>
     </nav>
+
     <h1>Pet Finder</h1>    
+    
